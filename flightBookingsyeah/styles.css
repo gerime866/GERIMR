@@ -1,0 +1,56 @@
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://as2.ftcdn.net/v2/jpg/11/76/46/05/1000_F_1176460539_NTM3Rs33foaIa5SlqhvOF5JwxrNr7Snm.jpg') no-repeat center center;
+    background-size: 120%; /* Zoom in the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: background-size 0.5s ease; /* Transition for background size */
+}
+
+#intro:hover {
+    background-size: 130%; /* Zoom in on hover */
+}
+
+.hidden {
+    display: none;
+}
+
+.background {
+    background: url('https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2t5JTIwd2FsbHBhcGVyfGVufDB8fDB8fHww') no-repeat center center;
+    background-size: 110%; /* Zoom in the background a little bit */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background-size 0.5s ease; /* Transition for background size */
+}
+
+.background:hover {
+    background-size: 120%; /* Zoom in on hover */
+}
+
+.about-background {
+    background: url('https://images.pexels.com/photos/587063/pexels-photo-587063.jpeg?cs=srgb&dl=pexels-manfred-irmer-184952-587063.jpg&fm=jpg') no-repeat center center;
+    background-size: cover;
+    transition: transform 0.5s ease; /* Transition for transform */
+}
+
+.about-background:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.home-background {
+    background: url('https://media.istockphoto.com/id/155439315/photo/passenger-airplane-flying-above-clouds-during-sunset.jpg?s=612x612&w=0&k=20&c=LJWadbs3B-jSGJBVy9s0f8gZMHi2NvWFXa3VJ2lFcL0=') no-repeat center center;
+    background-size: cover;
+    transition: transform 0.5s ease; /* Transition for transform */
+}
+
+.home-background:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+}

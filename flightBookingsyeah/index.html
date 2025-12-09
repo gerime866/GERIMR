@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Flight Booking System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-roboto bg-gray-100">
+    <div id="intro">
+        <div class="text-center text-white bg-black bg-opacity-50 p-6 rounded-lg">
+            <h1 class="text-4xl font-bold mb-4">Welcome to AeroBooker</h1>
+            <p class="mb-4">Your journey starts here. Click below to enter.</p>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" id="enterButton">Enter</button>
+        </div>
+    </div>
+    <div id="mainContent" class="hidden background">
+        <header class="bg-blue-600 text-white p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-2xl font-bold">Flight Booking System</h1>
+                <nav>
+                    <ul class="flex space-x-4">
+                        <li><button class="hover:underline" onclick="showSection('home')">Home</button></li>
+                        <li><button class="hover:underline" onclick="showSection('about')">About Us</button></li>
+                        <li><button class="hover:underline" onclick="showSection('contact')">Contact Us</button></li>
+                        <li><button class="hover:underline" onclick="showSection('services')">Services</button></li>
+                        <li><button class="hover:underline" onclick="showSection('ticketPage')">Your Ticket</button></li>
+                        <li><button class="hover:underline" onclick="showSection('admin')">admin</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <section class="container mx-auto p-4 mt-4 hidden home-background" id="home">
+            <div class="bg-black bg-opacity-50 p-6 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-white">Welcome to Our Flight Booking System</h2>
+                <p class="mb-4 text-white">Book your flights easily and quickly with our user-friendly system.</p>
+                <form class="bg-white bg-opacity-50 p-6 rounded-lg shadow-lg" id="bookingForm">
+                    <div class="mb-4">
+                        <label class="block text-gray-700" for="name">Name</label>
+                        <input class="w-full p-2 border border-gray-300 rounded mt-1 bg-transparent" id="name" type="text" required/>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700" for="from">From</label>
+                        <input class="w-full p-2 border border-gray-300 rounded mt-1 bg-transparent" id="from" type="text" required/>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700" for="to">To</label>
+                        <input class="w-full p-2 border border-gray-300 rounded mt-1 bg-transparent" id="to" type="text" required/>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700" for="departure">Departure Date</label>
+                        <input class="w-full p-2 border border-gray-300 rounded mt-1 bg-transparent" id="departure" type="date" required/>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700" for="return">Return Date</label>
+                        <input class="w-full p-2 border border-gray-300 rounded mt-1 bg-transparent" id="return" type="date" required/>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700" for="passengers">Number of Passengers</label>
+                        <input class="w-full p-2 border border-gray-300 rounded mt-1 bg-transparent" id="passengers" type="number" min="1" required/>
+                    </div>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" type="submit">Book Flight</button>
+                </form>
+                <div id="bookingDetails" class="mt-4 hidden bg-white bg-opacity-50 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Booking Details</h3>
+                    <p id="bookingInfo"></p>
+                </div>
+            </div>
+        </section>
+        <section class="container mx-auto p-4 mt-4 hidden" id="ticketPage">
+            <div class="bg-white bg-opacity-50 p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4">Your Ticket</h2>
+                <div id="ticketInfo"></div>
+                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-4" onclick="resetTicketForm()">Book Another Flight</button>
+            </div>
+        </section>
+        <section class="container mx-auto p-4 mt-4 hidden about-background" id="about">
+            <div class="bg-black bg-opacity-50 p-6 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-white">About Us</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-white">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">Our Mission</h3>
+                        <p>AeroBooker is a leading flight booking service provider, offering the best deals and a seamless booking experience. Our mission is to make travel accessible and convenient for everyone.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">Our Services</h3>
+                        <p>With a wide range of services including flight bookings, hotel reservations, car rentals, and travel insurance, we ensure that your travel needs are met with the highest standards of quality and customer service.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">Our Team</h3>
+                        <p>Our team of experienced professionals is dedicated to providing you with the best travel experience possible. We work tirelessly to find the best deals and offer personalized services to make your journey as smooth and enjoyable as possible.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">Why Choose Us</h3>
+                        <p>Whether you are traveling for business or leisure, AeroBooker is your trusted partner in travel. We are committed to making your travel experience seamless and enjoyable.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container mx-auto p-4 mt-4 hidden" id="contact">
+            <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+            <form class="bg-white bg-opacity-50 p-6 rounded-lg shadow-lg">
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="name">Name</label>
+                    <input class="w-full p-2 border border-gray-300 rounded mt-1 bg-transparent" id="name" type="text"/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="email">Email</label>
+                    <input class="w-full p-2 border border-gray-300 rounded mt-1 bg-transparent" id="email" type="email"/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="message">Message</label>
+                    <textarea class="w-full p-2 border border-gray-300 rounded mt-1 bg-transparent" id="message"></textarea>
+                </div>
+                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" type="submit">Send Message</button>
+            </form>
+        </section>
+        <section class="container mx-auto p-4 mt-4 hidden" id="services">
+            <h2 class="text-3xl font-bold mb-4">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white bg-opacity-50 p-4 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2">Flight Booking</h3>
+                    <p>Book your flights easily and quickly with our user-friendly system.</p>
+                    <button class="text-blue-600 hover:underline mt-2" onclick="toggleServiceInfo('flightBooking')">More Info</button>
+                    <div class="hidden mt-2" id="flightBooking">
+                        <p>We offer competitive prices and a wide range of flight options to suit your needs.</p>
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-50 p-4 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2">Hotel Reservations</h3>
+                    <p>Find and book the best hotels for your stay.</p>
+                    <a class="text-blue-600 hover:underline" href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiksI2s7sSLAxUkaw8CHYX_GjcYABAFGgJ0Yg&ae=2&aspm=1&co=1&ase=5&gclid=EAIaIQobChMIpLCNrO7EiwMVJGsPAh2F_xo3EAAYAiAAEgJg-vD_BwE&ohost=www.google.com&cid=CAASJuRo-GdTv3FrOc9AXyf599zFGAlPbWloWoyHEqdLY0m6yRgvriOH&sig=AOD64_28mGREKkk9Z97oHSpaEKYa5aIsgg&q&adurl&ved=2ahUKEwi7vIis7sSLAxVdja8BHf7ZIIAQ0Qx6BAgOEAQ" target="_blank">Visit Hotel Reservation Website</a>
+                </div>
+                <div class="bg-white bg-opacity-50 p-4 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2">Car Rentals</h3>
+                    <p>Rent a car for your travel needs with ease.</p>
+                    <a class="text-blue-600 hover:underline" href="https://www.rentalcars.com/" target="_blank">Visit Car Rental Company</a>
+                </div>
+                <div class="bg-white bg-opacity-50 p-4 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2">Travel Insurance</h3>
+                    <p>Protect your trip with our comprehensive travel insurance options.</p>
+                    <a class="text-blue-600 hover:underline" href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjwr6rm7sSLAxU08xYFHZJfEaMYABACGgJ0bA&ae=2&aspm=1&co=1&ase=5&gclid=EAIaIQobChMI8K-q5u7EiwMVNPMWBR2SXxGjEAAYAiAAEgISSPD_BwE&ohost=www.google.com&cid=CAASJuRoAXLrEL0mg1mXDWpE-A_6HKfbnMqJ88S1D5VRpkv6PrGhHF15&sig=AOD64_128vW5zGAFJgbQ6CaQmmIPBXK6og&q&adurl&ved=2ahUKEwjTqabm7sSLAxUqha8BHTWRNO0Q0Qx6BAgIEAE" target="_blank">Visit Travel Insurance Company</a>
+                </div>
+            </div>
+            <img alt="Various travel services including flights, hotels, and car rentals" class="w-full h-auto rounded-lg shadow-lg mt-4" height="400" src="https://storage.googleapis.com/a1aa/image/7vFzj4JuYnxy3Z_VTnyYkJX0faEU-BV-D0E-38wsMmI.jpg" width="800"/>
+        </section>
+        <section class="container mx-auto p-4 mt-4 hidden" id="admin">
+    <h2 class="text-3xl font-bold mb-4">Admin Form</h2>
+    <form class="bg-white bg-opacity-50 p-6 rounded-lg shadow-lg">
+        <div class="mb-4">
+            <label for="username" class="block text-gray-700 font-medium mb-2">Username</label>
+            <input type="text" id="username" name="username" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        </div>
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+            <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        </div>
+        <div class="mb-4">
+            <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
+            <input type="password" id="password" name="password" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        </div>
+        <div class="mb-4">
+            <label for="role" class="block text-gray-700 font-medium mb-2">Role</label>
+            <select id="role" name="role" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="admin">Admin</option>
+                <option value="editor">Editor</option>
+                <option value="viewer">Viewer</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="profile-picture" class="block text-gray-700 font-medium mb-2">Profile Picture</label>
+            <input type="file" id="profile-picture" name="profile-picture" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit</button>
+            <button type="reset" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">Reset</button>
+        </div>
+    </form>
+</section>
+<section class="container mx-auto p-4 mt-4 hidden" id="admin">
+    <h2 class="text-3xl font-bold mb-4">Admin Form</h2>
+    <form id="adminForm" class="bg-white bg-opacity-50 p-6 rounded-lg shadow-lg">
+        <div class="mb-4">
+            <label for="username" class="block text-gray-700">Username</label>
+            <input type="text" id="username" name="username" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required>
+        </div>
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700">Email</label>
+            <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required>
+        </div>
+        <div class="mb-4">
+            <label for="password" class="block text-gray-700">Password</label>
+            <input type="password" id="password" name="password" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required>
+        </div>
+        <div class="mb-4">
+            <label for="role" class="block text-gray-700">Role</label>
+            <select id="role" name="role" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                <option value="admin">Admin</option>
+                <option value="editor">Editor</option>
+                <option value="viewer">Viewer</option>
+            </select>
+        </div>
+        <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Submit</button>
+            <button type="reset" class="bg-gray-500 text-white px-4 py-2 rounded-lg">Reset</button>
+        </div>
+    </form>
+</section>
+        <footer class="bg-blue-600 text-white p-4 mt-8">
+            <div class="container mx-auto text-center">
+                <p>© 2025 Flight Booking System. Jovie & Antoniette.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
